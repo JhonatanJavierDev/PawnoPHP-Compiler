@@ -3,12 +3,8 @@ import subprocess, os, uuid
 
 app = Flask(__name__)
 
-@app.route('/')
-def index():
-    return render_template('index.html')
-
 @app.route('/compile', methods=['POST'])
-def compile_pawn_code():
+def CompilePawnCode():
     code = request.form.get('code')
 
     fileName = str(uuid.uuid4()) + '.pwn'
