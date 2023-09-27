@@ -4,7 +4,7 @@ import subprocess, os, uuid
 app = Flask(__name__)
 
 @app.route('/compile', methods=['POST'])
-def CompilePawnCode():
+def CompileCode():
     code = request.form.get('code')
 
     fileName = str(uuid.uuid4()) + '.pwn'
@@ -14,7 +14,7 @@ def CompilePawnCode():
     
     with open(filePath, 'w') as f:
         f.write(code)
-    
+
     try:
         output = subprocess.check_output(['compiler/pawncc', filePath], stderr=subprocess.STDOUT, universal_newlines=True)
         return jsonify({'success': True, 'output': output})
