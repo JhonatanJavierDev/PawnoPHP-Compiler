@@ -22,7 +22,7 @@ class Compile:
             f.write(code)
 
         try:
-            output = subprocess.check_output(['compiler/pawncc', filePath], stderr=subprocess.STDOUT, universal_newlines=True)
+            output = subprocess.check_output(['pawncc/pawncc', filePath], stderr=subprocess.STDOUT, universal_newlines=True)
             
             result = {
                 'success': True,
