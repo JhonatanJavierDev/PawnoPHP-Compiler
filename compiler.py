@@ -1,6 +1,7 @@
 import subprocess, os
 import uuid
 import re
+import glob
 
 class Compile:
     def __init__(self):
@@ -12,7 +13,7 @@ class Compile:
             'total_requirements': r'Total requirements:\s*(\d+)',
     }
 
-    def CompileCode(self, code):
+    def compile_code(self, code):
         fileName = str(uuid.uuid4()) + '.pwn'
         filePath = os.path.join('projects', fileName)
         os.makedirs('projects', exist_ok=True)
@@ -23,6 +24,8 @@ class Compile:
 
         try:
             output = subprocess.check_output(['pawncc/pawncc', filePath], stderr=subprocess.STDOUT, universal_newlines=True)
+
+            self.delete_amx()
             
             result = {
                 'success': True,
@@ -36,3 +39,17 @@ class Compile:
             return result
         except subprocess.CalledProcessError as e:
             return {'success': False, 'complete_output': e.output}
+        
+    def delete_amx(self):
+        deleted_amx_files = []
+        for amx_file in glob.glob('*.amx'):
+            if not os.path.join(os.getcwd(), amx_file).startswith(os.path.join(os.getcwd(), 'projects')):
+                try:
+                    os.remove(amx_file)
+                    deleted_amx_files.append(amx_file)
+                except OSError as e:
+                    print(f'Error deleting {amx_file}: {e}')
+                else:
+                    print(f'{amx_file} deleted')
+
+        return deleted_amx_files

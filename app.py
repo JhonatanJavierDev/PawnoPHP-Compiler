@@ -12,7 +12,7 @@ def index():
 @app.route('/compile', methods=['POST'])
 def compile_code():
     code = request.form.get('code')
-    result = compiler.CompileCode(code)
+    result = compiler.compile_code(code)
     return jsonify(result)
 
 if __name__ == '__main__':
