@@ -1,9 +1,9 @@
 from flask import Flask, render_template, request, jsonify
-from compiler import Compile
+from compiler import CodeCompiler
 
 app = Flask(__name__)
     
-compiler = Compile()
+compiler = CodeCompiler()
 
 @app.route('/')
 def index():
