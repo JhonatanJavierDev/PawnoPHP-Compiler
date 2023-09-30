@@ -6,7 +6,7 @@ import glob
 
 class CodeCompiler:
     def __init__(self):
-        self.patternsOutput = {
+        self.patterns_output = {
             'header_size': r'Header size:\s*(\d+)',
             'code_size': r'Code size:\s*(\d+)',
             'data_size': r'Data size:\s*(\d+)',
@@ -31,7 +31,7 @@ class CodeCompiler:
 
             result = {'success': True, 'complete_output': output}
 
-            for key, pattern in self.patternsOutput.items():
+            for key, pattern in self.patterns_output.items():
                 match = re.search(pattern, output)
                 result[key] = match.group(1) if match else None
 
