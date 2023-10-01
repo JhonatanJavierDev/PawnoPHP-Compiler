@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, request, jsonify
 from compiler import CodeCompiler
 
 app = Flask(__name__)
