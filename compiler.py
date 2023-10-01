@@ -5,6 +5,7 @@ from pathlib import Path
 
 class CodeCompiler:
     def __init__(self):
+        # regex patterns to search for information in the compiler output
         self.patterns_output = {
             'header_size': r'Header size:\s*(\d+)',
             'code_size': r'Code size:\s*(\d+)',
@@ -15,20 +16,22 @@ class CodeCompiler:
     
     def compile_code(self, code):
         try:
-            compiler_path = 'pawncc/pawncc'
-            file_name = str(uuid.uuid4()) + '.pwn'
-            project_dir = Path('projects')
-            file_path = project_dir / file_name
+            compiler_path = 'pawncc/pawncc' # compiler path
+            file_name = str(uuid.uuid4()) + '.pwn' # generate a random name for the pawn file
+            project_dir = Path('projects') # projects/code path
+            file_path = project_dir / file_name # complete path
 
-            project_dir.mkdir(parents=True, exist_ok=True)
+            project_dir.mkdir(parents=True, exist_ok=True) # create "projects" folder if it does not exist
 
+            # writes in a ".pwn" file the code obtained by a post request
             with file_path.open('w') as f:
                 f.write('#pragma option -d3\n\n') # bullshit
                 f.write(code)
             
+            # compiles the code by running the compiler, and obtains the output
             output = subprocess.check_output([compiler_path, str(file_path)], stderr=subprocess.STDOUT, universal_newlines=True)
 
-            self.delete_amx()
+            self.delete_amx() # delete amx files
 
             result = {'success': True, 'complete_output': output}
 
