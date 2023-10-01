@@ -1,0 +1,2 @@
+*.py linguist-language=python
+*.inc linguist-language=python
