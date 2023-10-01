@@ -5,13 +5,9 @@ app = Flask(__name__)
     
 compiler = CodeCompiler()
 
-@app.route('/')
-def index():
-    return render_template('index.html')
-
 @app.route('/compile', methods=['POST'])
 def compile_code():
-    code = request.form.get('code')
+    code = request.json.get('code')
     result = compiler.compile_code(code)
     return jsonify(result)
 
