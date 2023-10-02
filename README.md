@@ -9,7 +9,7 @@ Make sure you have [python](https://www.python.org/downloads/) 3.10 or higher in
 ## Clone Repository
 
    ```bash
-   git clone https://github.com/sneedman1337/GigaPawn.git
+   git clone https://github.com/sneedman1337/pawn-api-compiler.git
    ```
 
 ## Access The Repository path
