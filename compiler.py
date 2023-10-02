@@ -16,20 +16,31 @@ class CodeCompiler:
     
     def compile_code(self, code):
         try:
-            compiler_path = 'pawncc/pawncc' # compiler path
-            file_name = str(uuid.uuid4()) + '.pwn' # generate a random name for the pawn file
-            project_dir = Path('projects') # projects/code path
-            file_path = project_dir / file_name # complete path
+            # Generate a random name for the pawn file
+            file_name = str(uuid.uuid4()) + '.pwn'
 
-            project_dir.mkdir(parents=True, exist_ok=True) # create "projects" folder if it does not exist
+            # Define the complete path to the file
+            file_path = Path('projects') / file_name
 
-            # writes in a ".pwn" file the code obtained by a post request
+            # Create "projects" folder if it does not exist
+            project_dir = Path('projects')
+            project_dir.mkdir(parents=True, exist_ok=True)
+
+            # Write the code obtained by a post request to a ".pwn" file
             with file_path.open('w') as f:
-                f.write('#pragma option -d3\n\n') # bullshit
                 f.write(code)
             
+            # Build the args list including the '-d3' option
+            compiler_args = [
+                'pawncc/pawncc',
+                '-d3',
+                '-;+',
+                '-(+',
+                str(file_path)
+            ]
+
             # compiles the code by running the compiler, and obtains the output
-            output = subprocess.check_output([compiler_path, str(file_path)], stderr=subprocess.STDOUT, universal_newlines=True)
+            output = subprocess.check_output(compiler_args, stderr=subprocess.STDOUT, universal_newlines=True)
 
             self.delete_amx() # delete amx files
 
