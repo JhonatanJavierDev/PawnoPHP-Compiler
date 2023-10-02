@@ -1,4 +1,4 @@
-# GigaPawn - API (DEPRECATED/ABANDONED)
+# GigaCompiler
 
 **Is an api that allows you to compile code from the "*PAWN*" language.**
 
@@ -15,7 +15,7 @@ Make sure you have [python](https://www.python.org/downloads/) 3.10 or higher in
 ## Access The Repository path
 
    ```bash
-   cd GigaPawn
+   cd pawn-api-compiler
    ```
 
 ## Virtual Environment Configuration (Recommended)
@@ -54,7 +54,7 @@ pip install -r requirements.txt
 
 ## Download Community Compiler
 
-[Pawn Compiler 3.10.10](https://github.com/pawn-lang/compiler/releases/tag/v3.10.10) **(REQUIRED)**
+[PAWNCC 3.10.10](https://github.com/pawn-lang/compiler/releases/tag/v3.10.10) **(REQUIRED)**
 
 ## Run API
 
