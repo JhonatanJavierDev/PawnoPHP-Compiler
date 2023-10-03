@@ -56,12 +56,13 @@ class CodeCompiler:
     
     def delete_amx(self):
         deleted_amx_files = []
-        
+
         for amx_file in Path('.').glob('*.amx'):
             try:
-                amx_file.unlink()
-                deleted_amx_files.append(amx_file)
-                print(f'{amx_file} deleted')
+                if amx_file.parent == Path('.'):
+                    amx_file.unlink()
+                    deleted_amx_files.append(amx_file)
+                    print(f'{amx_file} deleted')
             except OSError as e:
                 print(f'Error deleting {amx_file}: {e}')
 
