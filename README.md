@@ -4,7 +4,7 @@
 
 ## How To Start?
 
-Make sure you have [python](https://www.python.org/downloads/) 3.10 or higher installed.
+Make sure you have [Python 3.10](https://www.python.org/downloads/) or higher versions installed.
 
 ## Clone Repository
 
@@ -20,31 +20,31 @@ Make sure you have [python](https://www.python.org/downloads/) 3.10 or higher in
 
 ## Virtual Environment Configuration (Recommended)
 
-* **Create virtualenv**
+### Create virtualenv
 
-   ```bash
-   python3 -m venv venv or virtualenv venv
-   ```
+```bash
+python3 -m venv venv or virtualenv venv
+```
 
-* **Run virtualenv**
-  
-    Windows:
+### Run virtualenv
 
-   ```bash
-   venv\Scripts\activate
-   ```
+**Windows:**
 
-    Windows(PowerShell):
+```bash
+venv\Scripts\activate
+```
 
-   ```bash
-   venv\Scripts\Activate.ps1
-   ```
+ **Windows(PowerShell):**
 
-    Linux/MacOS:
+```bash
+venv\Scripts\Activate.ps1
+```
 
-   ```bash
-   source venv/bin/activate
-   ```
+ **Linux/MacOS:**
+
+```bash
+source venv/bin/activate
+```
 
 ## Install PIP Packages
 
@@ -54,7 +54,7 @@ pip install -r requirements.txt
 
 ## Download Community Compiler
 
-[PAWNCC 3.10.10](https://github.com/pawn-lang/compiler/releases/tag/v3.10.10) **(REQUIRED)**
+[Pawncc 3.10.10](https://github.com/pawn-lang/compiler/releases/tag/v3.10.10) **(REQUIRED)**
 
 ## Run API
 
