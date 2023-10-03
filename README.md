@@ -1,6 +1,6 @@
-# GigaCompiler
+# PawnPHP-Compiler
 
-**Is an api that allows you to compile code from the "*PAWN*" language.**
+**This is a version of the GigaCompiler API written by Sneedman, for the "*PAWN*" language.**
 
 ## How To Start?
 
