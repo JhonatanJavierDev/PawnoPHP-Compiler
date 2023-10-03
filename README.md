@@ -1,6 +1,7 @@
 # PawnPHP-Compiler
 
-**This is a version of the GigaCompiler API written by Sneedman, for the "*PAWN*" language.**
+**This is a version of the GigaCompiler API written by [Sneedman](https://github.com/sneedman1337/), for the "PAWN" language.**
+
 
 ## Clone Repository
 
